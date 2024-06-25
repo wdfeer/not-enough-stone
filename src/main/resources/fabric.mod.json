@@ -17,7 +17,7 @@
 	"entrypoints": {
 		"main": [
 			{
-				"value": "org.wdfeer.NotEnoughStone",
+				"value": "org.wdfeer.not_enough_stone.NotEnoughStone",
 				"adapter": "kotlin"
 			}
 		]
