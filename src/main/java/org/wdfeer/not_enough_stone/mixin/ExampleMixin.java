@@ -1,4 +1,4 @@
-package org.wdfeer.mixin;
+package org.wdfeer.not_enough_stone.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

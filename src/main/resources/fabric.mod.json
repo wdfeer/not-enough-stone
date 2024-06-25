@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "not-enough-stone",
+	"id": "not_enough_stone",
 	"version": "${version}",
 	"name": "Not Enough Stone",
 	"description": "Combine stone",
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/wdfeer/not-enough-stone"
 	},
 	"license": "GPL-3.0",
-	"icon": "assets/not-enough-stone/icon.png",
+	"icon": "assets/not_enough_stone/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -23,7 +23,7 @@
 		]
 	},
 	"mixins": [
-		"not-enough-stone.mixins.json"
+		"not_enough_stone.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
