@@ -1,6 +1,7 @@
 package org.wdfeer.not_enough_stone.recipe
 
 import net.minecraft.inventory.RecipeInputInventory
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
@@ -13,10 +14,17 @@ import net.minecraft.registry.DynamicRegistryManager
 import net.minecraft.util.Identifier
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.NotEnoughStone
+import org.wdfeer.not_enough_stone.item.ModItems
 
-class StoneRecipe : CraftingRecipe {
+class GeomatterRecipe : CraftingRecipe {
     companion object {
-        val ID: Identifier = Identifier(NotEnoughStone.MOD_ID, "stone_combination")
+        val ID: Identifier = Identifier(NotEnoughStone.MOD_ID, "geomatter")
+
+        val stones: Array<Item> = arrayOf(
+            Items.STONE,
+            Items.COBBLESTONE,
+            ModItems.GEOMATTER
+        )
     }
 
     override fun matches(inventory: RecipeInputInventory, world: World): Boolean {
@@ -24,7 +32,8 @@ class StoneRecipe : CraftingRecipe {
 
         for (i in 0 until inventory.size()) {
             val stack = inventory.getStack(i)
-            if (stack.item != Items.STONE) return false
+            if (!stones.any(predicate = {item -> stack.isOf(item)}))
+                return false
         }
         return true
     }
@@ -38,7 +47,7 @@ class StoneRecipe : CraftingRecipe {
             totalCombined += nbt?.getInt("stones_combined") ?: 1
         }
 
-        val resultStack = ItemStack(Items.STONE)
+        val resultStack = ItemStack(ModItems.GEOMATTER)
         val resultNbt = NbtCompound()
         resultNbt.putInt("stones_combined", totalCombined)
         resultStack.nbt = resultNbt
@@ -50,7 +59,7 @@ class StoneRecipe : CraftingRecipe {
     }
 
     override fun getOutput(registryManager: DynamicRegistryManager?): ItemStack {
-        val resultStack = ItemStack(Items.STONE)
+        val resultStack = ItemStack(ModItems.GEOMATTER)
         val resultNbt = NbtCompound()
         resultNbt.putInt("stones_combined", 9)
         resultStack.nbt = resultNbt
@@ -69,21 +78,21 @@ class StoneRecipe : CraftingRecipe {
         return CraftingRecipeCategory.MISC
     }
 
-    object Serializer : RecipeSerializer<StoneRecipe> {
-        override fun read(id: Identifier?, json: com.google.gson.JsonObject?): StoneRecipe {
-            return StoneRecipe()
+    object Serializer : RecipeSerializer<GeomatterRecipe> {
+        override fun read(id: Identifier?, json: com.google.gson.JsonObject?): GeomatterRecipe {
+            return GeomatterRecipe()
         }
 
-        override fun read(id: Identifier, buf: PacketByteBuf): StoneRecipe {
-            return StoneRecipe()
+        override fun read(id: Identifier, buf: PacketByteBuf): GeomatterRecipe {
+            return GeomatterRecipe()
         }
 
-        override fun write(buf: PacketByteBuf, recipe: StoneRecipe) {
+        override fun write(buf: PacketByteBuf, recipe: GeomatterRecipe) {
             // No additional data to write
         }
     }
 
-    object Type : RecipeType<StoneRecipe> {
+    object Type : RecipeType<GeomatterRecipe> {
         override fun toString(): String {
             return ID.toString()
         }

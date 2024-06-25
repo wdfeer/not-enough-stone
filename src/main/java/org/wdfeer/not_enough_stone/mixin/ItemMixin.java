@@ -19,7 +19,7 @@ public class ItemMixin {
     void AppendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci){
         if (stack.hasNbt() && stack.getOrCreateNbt().contains("stones_combined")){
             int stones = stack.getOrCreateNbt().getInt("stones_combined");
-            tooltip.add(Text.translatable("org.wdfeer.not_enough_stone.tooltip").append(Integer.toString(stones)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("not_enough_stone.stones_combined_tooltip").append(Integer.toString(stones)).formatted(Formatting.GRAY));
         }
     }
 }

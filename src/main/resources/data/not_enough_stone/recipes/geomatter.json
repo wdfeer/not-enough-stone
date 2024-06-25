@@ -1,5 +1,5 @@
 {
-  "type": "not_enough_stone:stone_combination",
+  "type": "not_enough_stone:geomatter",
   "category": "misc",
   "pattern": [
     "XXX",
@@ -12,6 +12,6 @@
     }
   },
   "result": {
-    "item": "minecraft:stone"
+    "item": "not_enough_stone:geomatter"
   }
 }
