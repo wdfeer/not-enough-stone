@@ -16,7 +16,7 @@ import org.wdfeer.not_enough_stone.NotEnoughStone
 
 class StoneRecipe : CraftingRecipe {
     companion object {
-        val id: Identifier = Identifier(NotEnoughStone.MOD_ID, "stone_combination")
+        val ID: Identifier = Identifier(NotEnoughStone.MOD_ID, "stone_combination")
     }
 
     override fun matches(inventory: RecipeInputInventory, world: World): Boolean {
@@ -58,7 +58,7 @@ class StoneRecipe : CraftingRecipe {
     }
 
     override fun getId(): Identifier {
-        return id
+        return ID
     }
 
     override fun getSerializer(): RecipeSerializer<*> {
@@ -85,7 +85,7 @@ class StoneRecipe : CraftingRecipe {
 
     object Type : RecipeType<StoneRecipe> {
         override fun toString(): String {
-            return id.toString()
+            return ID.toString()
         }
     }
 }

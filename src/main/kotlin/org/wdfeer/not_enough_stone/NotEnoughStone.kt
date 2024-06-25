@@ -11,8 +11,8 @@ object NotEnoughStone : ModInitializer {
 	private val logger = LoggerFactory.getLogger("not_enough_stone")
 
 	override fun onInitialize() {
-		Registry.register(Registries.RECIPE_TYPE, StoneRecipe.id, StoneRecipe.Type)
-		Registry.register(Registries.RECIPE_SERIALIZER, StoneRecipe.id, StoneRecipe.Serializer)
+		Registry.register(Registries.RECIPE_TYPE, StoneRecipe.ID, StoneRecipe.Type)
+		Registry.register(Registries.RECIPE_SERIALIZER, StoneRecipe.ID, StoneRecipe.Serializer)
 		logger.info("NotEnoughStone Mod Initialized!")
 	}
 }
