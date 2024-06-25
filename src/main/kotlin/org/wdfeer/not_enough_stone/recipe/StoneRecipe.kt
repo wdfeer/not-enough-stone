@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.NotEnoughStone
 
-class StoneRecipe() : CraftingRecipe {
+class StoneRecipe : CraftingRecipe {
     companion object {
         val id: Identifier = Identifier(NotEnoughStone.MOD_ID, "stone_combination")
     }
