@@ -1,0 +1,17 @@
+{
+  "type": "not_enough_stone:stone_combination",
+  "category": "misc",
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "item": "minecraft:stone"
+  }
+}
