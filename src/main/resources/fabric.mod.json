@@ -3,7 +3,7 @@
 	"id": "not_enough_stone",
 	"version": "${version}",
 	"name": "Not Enough Stone",
-	"description": "Combine stone",
+	"description": "Combine stone into more stone",
 	"authors": [
 		"wdfeer"
 	],
