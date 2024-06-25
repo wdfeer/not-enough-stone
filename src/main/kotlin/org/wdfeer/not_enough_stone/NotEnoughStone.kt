@@ -6,6 +6,7 @@ import net.minecraft.registry.Registry
 import org.slf4j.LoggerFactory
 import org.wdfeer.not_enough_stone.item.ModItems
 import org.wdfeer.not_enough_stone.recipe.GeomatterRecipe
+import org.wdfeer.not_enough_stone.recipe.RecipeInitializer
 
 object NotEnoughStone : ModInitializer {
 	const val MOD_ID: String = "not_enough_stone"
@@ -13,10 +14,8 @@ object NotEnoughStone : ModInitializer {
 
 	override fun onInitialize() {
 		ModItems.initialize()
+		RecipeInitializer.initialize()
 
-		Registry.register(Registries.RECIPE_TYPE, GeomatterRecipe.ID, GeomatterRecipe.Type)
-		Registry.register(Registries.RECIPE_SERIALIZER, GeomatterRecipe.ID, GeomatterRecipe.Serializer)
-
-		logger.info("Not Enough Stone initialized!")
+		logger.info("Mod $MOD_ID initialized!")
 	}
 }

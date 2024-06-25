@@ -1,0 +1,20 @@
+{
+  "type": "not_enough_stone:geomatter_pickaxe",
+  "category": "misc",
+  "pattern": [
+    "XXX",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "X": {
+      "item": "not_enough_stone:geomatter"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "not_enough_stone:geomatter_pickaxe"
+  }
+}
