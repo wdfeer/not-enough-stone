@@ -1,5 +1,6 @@
 {
   "item.not_enough_stone.geomatter": "Geomatter",
+  "item.not_enough_stone.geomatter_pickaxe": "Geomatter Pickaxe",
 
   "not_enough_stone.stones_combined_tooltip": "Stones Combined: "
 }
