@@ -23,6 +23,11 @@ class GeomatterRecipe : CraftingRecipe {
         val stones: Array<Item> = arrayOf(
             Items.STONE,
             Items.COBBLESTONE,
+            Items.COBBLED_DEEPSLATE,
+            Items.DEEPSLATE,
+            Items.DIORITE,
+            Items.GRANITE,
+            Items.ANDESITE,
             ModItems.GEOMATTER
         )
     }
