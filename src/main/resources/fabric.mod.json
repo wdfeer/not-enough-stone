@@ -3,15 +3,15 @@
 	"id": "not-enough-stone",
 	"version": "${version}",
 	"name": "Not Enough Stone",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Combine stone",
 	"authors": [
-		"Me!"
+		"wdfeer"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/wdfeer/not-enough-stone",
+		"sources": "https://github.com/wdfeer/not-enough-stone"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0",
 	"icon": "assets/not-enough-stone/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -33,6 +33,5 @@
 		"fabric-language-kotlin": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
 	}
 }
