@@ -1,19 +1,19 @@
 {
-  "type": "not_enough_stone:geomatter_pickaxe",
-  "category": "misc",
-  "pattern": [
-    "XXX",
-    " S ",
-    " S "
-  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
     "X": {
       "item": "not_enough_stone:geomatter"
-    },
-    "S": {
-      "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
   "result": {
     "item": "not_enough_stone:geomatter_pickaxe"
   }

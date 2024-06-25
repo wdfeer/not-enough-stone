@@ -6,6 +6,10 @@ import net.minecraft.recipe.Ingredient
 import org.wdfeer.not_enough_stone.item.ModItems
 
 class GeomatterMaterial : ToolMaterial {
+    companion object {
+        val INSTANCE: GeomatterMaterial = GeomatterMaterial()
+    }
+
     override fun getDurability(): Int = ToolMaterials.STONE.durability * 9
 
     override fun getMiningSpeedMultiplier(): Float = ToolMaterials.STONE.miningSpeedMultiplier
