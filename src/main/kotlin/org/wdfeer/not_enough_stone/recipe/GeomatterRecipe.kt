@@ -29,10 +29,8 @@ class GeomatterRecipe : CraftingRecipe {
             Items.DIORITE,
             Items.GRANITE,
             Items.ANDESITE,
-            Items.TUFF,
-            ModItems.GEOMATTER,
-            ModItems.GEOMATTER_PICKAXE
-        )
+            Items.TUFF
+        ).plus(ModItems.items)
     }
 
     override fun matches(inventory: RecipeInputInventory, world: World): Boolean {

@@ -8,10 +8,12 @@ import net.minecraft.util.Identifier
 class ModItems {
     companion object{
         val GEOMATTER = Geomatter()
-        val GEOMATTER_PICKAXE = GeomatterPickaxe()
-        private val items: Array<Item> = arrayOf(
+        private val GEOMATTER_PICKAXE = GeomatterPickaxe()
+        private val GEOMATTER_AXE = GeomatterAxe()
+        val items: Array<Item> = arrayOf(
             GEOMATTER,
-            GEOMATTER_PICKAXE
+            GEOMATTER_PICKAXE,
+            GEOMATTER_AXE
         )
 
         fun initialize() {
