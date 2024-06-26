@@ -6,14 +6,11 @@ import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
 import net.minecraft.item.PickaxeItem
 import net.minecraft.text.Text
-import net.minecraft.util.Formatting
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
-import kotlin.math.log
-import kotlin.math.roundToInt
 
-class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, FabricItemSettings()), Identifiable {
+class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_pickaxe"
 
     override fun appendTooltip(
@@ -27,36 +24,18 @@ class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, Fabric
         if (tooltip != null){
             val miningSpeed: Float = getMiningSpeedMultiplier(stack, null)
             tooltip.add(
-                Text.translatable("not_enough_stone.pickaxe_mining_speed_tooltip")
-                    .formatted(Formatting.GRAY)
-                    .append(Text.literal(((miningSpeed * 100f).roundToInt() / 100f).toString()).formatted(getMiningSpeedTooltipColor(miningSpeed))))
+                getMiningSpeedTooltip(miningSpeed)
+            )
         }
-    }
-
-    private fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
-        if (miningSpeed < 2)
-            return Formatting.GRAY
-        else if (miningSpeed < 3)
-            return Formatting.WHITE
-        else if (miningSpeed < 4)
-            return Formatting.GOLD
-
-        return Formatting.AQUA
     }
 
     override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {
-        var mult = 1f
+        var multiplier = 1f
 
-        if (stack != null && (state == null || isSuitableFor(state))) {
-            val logarithm: Float = log((stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT) - 26f), 9f)
-
-            mult = (if (logarithm.isNaN()) 0f else logarithm) + 1f
+        if (stack != null && (state == null || isSuitableFor(state)) && stack.orCreateNbt.contains(Geomatter.STONES_COMBINED_NBT)) {
+            multiplier = getMiningSpeed(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))
         }
 
-        return (if (state == null) 1f else super.getMiningSpeedMultiplier(stack, state)) * mult
-    }
-
-    override fun canRepair(stack: ItemStack?, ingredient: ItemStack?): Boolean {
-        return false
+        return (if (state == null) 1f else super.getMiningSpeedMultiplier(stack, state)) * multiplier
     }
 }

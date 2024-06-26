@@ -10,14 +10,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.not_enough_stone.item.Geomatter;
-import org.wdfeer.not_enough_stone.item.GeomatterPickaxe;
+import org.wdfeer.not_enough_stone.item.GeomatterTool;
 
 @Mixin(ShapedRecipe.class)
 public class ShapedRecipeMixin {
     @Inject(method = "craft(Lnet/minecraft/inventory/Inventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;", at = @At("RETURN"), cancellable = true)
     void injectCraft(Inventory inventory, DynamicRegistryManager registryManager, CallbackInfoReturnable<ItemStack> cir){
         ItemStack result = cir.getReturnValue();
-        if (result.getItem() instanceof GeomatterPickaxe){
+        if (result.getItem() instanceof GeomatterTool){
             result.getOrCreateNbt().putInt(Geomatter.STONES_COMBINED_NBT, getStonesCombined(inventory));
             cir.setReturnValue(result);
         }
