@@ -10,10 +10,12 @@ class ModItems {
         val GEOMATTER = Geomatter()
         private val GEOMATTER_PICKAXE = GeomatterPickaxe()
         private val GEOMATTER_AXE = GeomatterAxe()
+        private val GEOMATTER_SWORD = GeomatterSword()
         val items: Array<Item> = arrayOf(
             GEOMATTER,
             GEOMATTER_PICKAXE,
-            GEOMATTER_AXE
+            GEOMATTER_AXE,
+            GEOMATTER_SWORD
         )
 
         fun initialize() {
