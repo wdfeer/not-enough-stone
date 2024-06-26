@@ -14,6 +14,7 @@ import net.minecraft.registry.DynamicRegistryManager
 import net.minecraft.util.Identifier
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.NotEnoughStone
+import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.ModItems
 
 class GeomatterRecipe : CraftingRecipe {
@@ -49,12 +50,12 @@ class GeomatterRecipe : CraftingRecipe {
         for (i in 0 until inventory.size()) {
             val stack = inventory.getStack(i)
             val nbt = stack.nbt
-            totalCombined += nbt?.getInt("stones_combined") ?: 1
+            totalCombined += nbt?.getInt(Geomatter.STONES_COMBINED_NBT) ?: 1
         }
 
         val resultStack = ItemStack(ModItems.GEOMATTER)
         val resultNbt = NbtCompound()
-        resultNbt.putInt("stones_combined", totalCombined)
+        resultNbt.putInt(Geomatter.STONES_COMBINED_NBT, totalCombined)
         resultStack.nbt = resultNbt
         return resultStack
     }
@@ -66,7 +67,7 @@ class GeomatterRecipe : CraftingRecipe {
     override fun getOutput(registryManager: DynamicRegistryManager?): ItemStack {
         val resultStack = ItemStack(ModItems.GEOMATTER)
         val resultNbt = NbtCompound()
-        resultNbt.putInt("stones_combined", 9)
+        resultNbt.putInt(Geomatter.STONES_COMBINED_NBT, 9)
         resultStack.nbt = resultNbt
         return resultStack
     }

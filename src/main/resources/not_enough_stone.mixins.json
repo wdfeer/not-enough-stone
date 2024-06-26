@@ -3,7 +3,6 @@
 	"package": "org.wdfeer.not_enough_stone.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ItemMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

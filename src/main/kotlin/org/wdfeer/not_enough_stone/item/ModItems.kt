@@ -14,7 +14,7 @@ class ModItems {
             GEOMATTER_PICKAXE
         )
 
-        fun initialize(): Unit {
+        fun initialize() {
             for (item: Item in items){
                 Registry.register(Registries.ITEM, (item as Identifiable).getId(), item)
             }

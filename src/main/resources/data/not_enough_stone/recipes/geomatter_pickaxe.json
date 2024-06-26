@@ -1,6 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
+  "type": "not_enough_stone:geomatter_tool_recipe",
   "key": {
     "#": {
       "item": "minecraft:stick"

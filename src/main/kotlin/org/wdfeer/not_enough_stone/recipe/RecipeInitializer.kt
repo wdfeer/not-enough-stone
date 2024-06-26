@@ -8,6 +8,9 @@ class RecipeInitializer {
         fun initialize(): Unit {
             Registry.register(Registries.RECIPE_TYPE, GeomatterRecipe.ID, GeomatterRecipe.Type)
             Registry.register(Registries.RECIPE_SERIALIZER, GeomatterRecipe.ID, GeomatterRecipe.Serializer)
+
+            Registry.register(Registries.RECIPE_TYPE, GeomatterToolRecipe.ID, GeomatterToolRecipe.Type)
+            Registry.register(Registries.RECIPE_SERIALIZER, GeomatterToolRecipe.ID, GeomatterToolRecipe.Serializer)
         }
     }
 }
