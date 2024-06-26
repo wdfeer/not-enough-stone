@@ -10,7 +10,7 @@ import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
+class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f - 4f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_pickaxe"
 
     override fun appendTooltip(
