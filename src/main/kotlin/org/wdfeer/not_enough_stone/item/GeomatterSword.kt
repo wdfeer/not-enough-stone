@@ -35,7 +35,7 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f, FabricItem
         slot: EquipmentSlot?
     ): Multimap<EntityAttribute, EntityAttributeModifier> {
         val map = HashMultimap.create(getAttributeModifiers(slot))
-        if (stack != null) {
+        if (stack != null && slot == EquipmentSlot.MAINHAND) {
             map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 EntityAttributeModifier(
                     getIdName() + "damage_attribute",
@@ -44,5 +44,9 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f, FabricItem
                 ))
         }
         return map
+    }
+
+    override fun getMinStones(): Int {
+        return 18
     }
 }

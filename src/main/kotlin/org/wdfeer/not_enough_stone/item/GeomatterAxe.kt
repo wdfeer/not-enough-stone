@@ -11,6 +11,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
+import net.minecraft.item.Items
 import net.minecraft.item.PickaxeItem
 import net.minecraft.text.Text
 import net.minecraft.world.World
@@ -38,6 +39,8 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 1f, FabricItemSetti
                 tooltip.add(getAttackDamageMultTooltip(getDamageMult(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
             }
         }
+
+        Items.STONE_SWORD
     }
 
     override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {
@@ -55,7 +58,7 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 1f, FabricItemSetti
         slot: EquipmentSlot?
     ): Multimap<EntityAttribute, EntityAttributeModifier> {
         val map = HashMultimap.create(getAttributeModifiers(slot))
-        if (stack != null) {
+        if (stack != null && slot == EquipmentSlot.MAINHAND) {
             map.put(
                 EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 EntityAttributeModifier(
@@ -66,5 +69,9 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 1f, FabricItemSetti
             )
         }
         return map
+    }
+
+    override fun getMinStones(): Int {
+        return 26
     }
 }

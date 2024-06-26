@@ -6,8 +6,10 @@ import kotlin.math.log
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
+    fun getMinStones(): Int
+
     fun getDamageMult(stones: Int): Float {
-        val logarithm: Float = log(stones - 26f, 9f)
+        val logarithm: Float = log(stones + 1f - getMinStones(), 9f)
 
         return (if (logarithm.isNaN()) 0f else logarithm) * stones / 100f + 1f
     }
