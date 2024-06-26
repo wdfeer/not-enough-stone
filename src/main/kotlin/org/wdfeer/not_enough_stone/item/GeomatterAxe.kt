@@ -12,7 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
-import net.minecraft.item.PickaxeItem
 import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
@@ -36,7 +35,7 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricIt
             )
 
             if (stack != null) {
-                tooltip.add(getAttackDamageMultTooltip(getDamageMult(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
+                tooltip.add(getDamageIncreaseTooltip(getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
             }
         }
 
@@ -63,8 +62,8 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricIt
                 EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 EntityAttributeModifier(
                     getIdName() + "damage_attribute",
-                    getDamageMult(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
-                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
+                    EntityAttributeModifier.Operation.ADDITION
                 )
             )
         }

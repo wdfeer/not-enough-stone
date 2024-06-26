@@ -26,7 +26,7 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f - 4f, Fabri
     ) {
         StonesCombinedTooltip.appendTooltip(stack, tooltip)
         if (stack != null) {
-            tooltip?.add(getAttackDamageMultTooltip(getDamageMult(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
+            tooltip?.add(getDamageIncreaseTooltip(getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
         }
     }
 
@@ -39,8 +39,8 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f - 4f, Fabri
             map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 EntityAttributeModifier(
                     getIdName() + "damage_attribute",
-                    getDamageMult(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
-                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
+                    EntityAttributeModifier.Operation.ADDITION
                 ))
         }
         return map
