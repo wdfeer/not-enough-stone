@@ -1,5 +1,5 @@
 {
-  "type": "not_enough_stone:geomatter_tool_recipe",
+  "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
       "item": "minecraft:stick"

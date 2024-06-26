@@ -5,12 +5,9 @@ import net.minecraft.registry.Registry
 
 class RecipeInitializer {
     companion object {
-        fun initialize(): Unit {
+        fun initialize() {
             Registry.register(Registries.RECIPE_TYPE, GeomatterRecipe.ID, GeomatterRecipe.Type)
             Registry.register(Registries.RECIPE_SERIALIZER, GeomatterRecipe.ID, GeomatterRecipe.Serializer)
-
-            Registry.register(Registries.RECIPE_TYPE, GeomatterToolRecipe.ID, GeomatterToolRecipe.Type)
-            Registry.register(Registries.RECIPE_SERIALIZER, GeomatterToolRecipe.ID, GeomatterToolRecipe.Serializer)
         }
     }
 }
