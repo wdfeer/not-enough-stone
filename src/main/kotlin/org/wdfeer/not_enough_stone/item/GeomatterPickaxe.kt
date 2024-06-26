@@ -47,7 +47,7 @@ class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, Fabric
     override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {
         var mult = 1f
 
-        if (stack != null) {
+        if (stack != null && (state == null || isSuitableFor(state))) {
             val logarithm: Float = log((stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT) - 26f), 9f)
 
             mult = (if (logarithm.isNaN()) 0f else logarithm) + 1f
