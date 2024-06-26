@@ -16,7 +16,7 @@ import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
 class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f, FabricItemSettings()), GeomatterWeapon, Identifiable {
-    override fun getIdName(): String = "geomatter_axe"
+    override fun getIdName(): String = "geomatter_sword"
 
     override fun appendTooltip(
         stack: ItemStack?,

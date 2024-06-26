@@ -1,6 +1,8 @@
 {
   "item.not_enough_stone.geomatter": "Geomatter",
   "item.not_enough_stone.geomatter_pickaxe": "Geomatter Pickaxe",
+  "item.not_enough_stone.geomatter_axe": "Geomatter Axe",
+  "item.not_enough_stone.geomatter_sword": "Geomatter Sword",
 
   "not_enough_stone.stones_combined_tooltip": "Stones Combined: ",
   "not_enough_stone.pickaxe_mining_speed_tooltip": "Mining Speed Multiplier: "
