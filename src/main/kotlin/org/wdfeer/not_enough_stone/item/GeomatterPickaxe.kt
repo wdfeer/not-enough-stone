@@ -51,4 +51,8 @@ class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, Fabric
 
         return (if (logarithm.isNaN()) 0f else logarithm) + 1f
     }
+
+    override fun canRepair(stack: ItemStack?, ingredient: ItemStack?): Boolean {
+        return false
+    }
 }

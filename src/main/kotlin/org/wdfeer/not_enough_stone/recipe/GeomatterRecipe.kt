@@ -29,7 +29,8 @@ class GeomatterRecipe : CraftingRecipe {
             Items.DIORITE,
             Items.GRANITE,
             Items.ANDESITE,
-            ModItems.GEOMATTER
+            ModItems.GEOMATTER,
+            ModItems.GEOMATTER_PICKAXE
         )
     }
 
