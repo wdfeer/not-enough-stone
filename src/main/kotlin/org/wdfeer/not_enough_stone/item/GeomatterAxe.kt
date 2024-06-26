@@ -11,7 +11,7 @@ import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 6f, 1.2f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
+class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 1f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_axe"
 
     override fun appendTooltip(

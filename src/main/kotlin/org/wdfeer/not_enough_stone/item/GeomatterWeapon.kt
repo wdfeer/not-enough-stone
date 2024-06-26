@@ -5,29 +5,29 @@ import net.minecraft.util.Formatting
 import kotlin.math.log
 import kotlin.math.roundToInt
 
-interface GeomatterMiningTool : GeomatterTool {
-    fun getMiningSpeed(stones: Int): Float {
+interface GeomatterWeapon : GeomatterTool {
+    fun getDamageMult(stones: Int): Float {
         val logarithm: Float = log(stones - 26f, 9f)
 
         return (if (logarithm.isNaN()) 0f else logarithm) * stones / 100f + 1f
     }
 
-    private fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
-        if (miningSpeed < 2)
+    private fun getAttackDamageMultTooltipColor(damageIncrease: Float): Formatting {
+        if (damageIncrease < 1.2f)
             return Formatting.GRAY
-        else if (miningSpeed < 3)
+        else if (damageIncrease < 1.5f)
             return Formatting.WHITE
-        else if (miningSpeed < 4)
+        else if (damageIncrease < 2f)
             return Formatting.GOLD
 
         return Formatting.AQUA
     }
 
-    fun getMiningSpeedTooltip(miningSpeed: Float): Text =
+    fun getAttackDamageMultTooltip(damageIncrease: Float): Text =
         Text.translatable("not_enough_stone.pickaxe_mining_speed_tooltip")
             .formatted(Formatting.GRAY)
             .append(
-                Text.literal(((miningSpeed * 100f).roundToInt() / 100f).toString())
-                    .formatted(getMiningSpeedTooltipColor(miningSpeed))
+                Text.literal(((damageIncrease * 100f).roundToInt() / 100f).toString())
+                    .formatted(getAttackDamageMultTooltipColor(damageIncrease))
             )
 }
