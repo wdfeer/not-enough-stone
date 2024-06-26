@@ -5,7 +5,9 @@ import net.minecraft.block.BlockState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
 import net.minecraft.item.PickaxeItem
+import net.minecraft.text.MutableText
 import net.minecraft.text.Text
+import net.minecraft.text.TextContent
 import net.minecraft.util.Formatting
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
@@ -29,7 +31,8 @@ class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, Fabric
             tooltip.add(
                 Text.translatable("not_enough_stone.pickaxe_mining_speed_tooltip")
                     .formatted(Formatting.GRAY)
-                    .append(Text.of(((miningSpeed * 100f).roundToInt() / 100f).toString())).formatted(getMiningSpeedTooltipColor(miningSpeed)))
+                    .append(Text.literal(((miningSpeed * 100f).roundToInt() / 100f).toString()))
+                    .formatted(getMiningSpeedTooltipColor(miningSpeed)))
         }
     }
 
@@ -45,11 +48,15 @@ class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f, Fabric
     }
 
     override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {
-        if (stack == null) return 1f
+        var mult: Float = 1f
 
-        val logarithm: Float = log((stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT) - 26f), 9f)
+        if (stack != null) {
+            val logarithm: Float = log((stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT) - 26f), 9f)
 
-        return (if (logarithm.isNaN()) 0f else logarithm) + 1f
+            mult = (if (logarithm.isNaN()) 0f else logarithm) + 1f
+        }
+
+        return super.getMiningSpeedMultiplier(stack, state) * mult
     }
 
     override fun canRepair(stack: ItemStack?, ingredient: ItemStack?): Boolean {
