@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "not_enough_stone:geomatter"
+    }
+  },
+  "pattern": [
+    " XX",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "item": "not_enough_stone:geomatter_hoe"
+  }
+}
