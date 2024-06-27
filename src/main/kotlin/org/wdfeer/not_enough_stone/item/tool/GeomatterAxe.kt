@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_stone.item
+package org.wdfeer.not_enough_stone.item.tool
 
 import com.google.common.collect.HashMultimap
 import com.google.common.collect.Multimap
@@ -14,10 +14,13 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.text.Text
 import net.minecraft.world.World
+import org.wdfeer.not_enough_stone.item.Geomatter
+import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricItemSettings()), GeomatterMiningTool, GeomatterWeapon, Identifiable {
+class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricItemSettings()), GeomatterMiningTool,
+    GeomatterWeapon, Identifiable {
     override fun getIdName(): String = "geomatter_axe"
 
     override fun appendTooltip(

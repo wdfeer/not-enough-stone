@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.not_enough_stone.item.Geomatter;
-import org.wdfeer.not_enough_stone.item.GeomatterTool;
+import org.wdfeer.not_enough_stone.item.tool.GeomatterTool;
 
 @Mixin(ShapedRecipe.class)
 public class ShapedRecipeMixin {

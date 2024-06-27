@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_stone.item
+package org.wdfeer.not_enough_stone.item.tool
 
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting

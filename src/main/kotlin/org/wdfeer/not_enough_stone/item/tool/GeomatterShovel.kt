@@ -1,16 +1,19 @@
-package org.wdfeer.not_enough_stone.item
+package org.wdfeer.not_enough_stone.item.tool
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.block.BlockState
 import net.minecraft.client.item.TooltipContext
-import net.minecraft.item.HoeItem
 import net.minecraft.item.ItemStack
+import net.minecraft.item.ShovelItem
 import net.minecraft.text.Text
 import net.minecraft.world.World
+import org.wdfeer.not_enough_stone.item.Geomatter
+import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterHoe : HoeItem(GeomatterMaterial.INSTANCE, 1, 1.2f - 4f, FabricItemSettings()), GeomatterMiningTool, Identifiable {
+class GeomatterShovel : ShovelItem(GeomatterMaterial.INSTANCE, 2f, 1.2f - 4f, FabricItemSettings()),
+    GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_pickaxe"
 
     override fun appendTooltip(
