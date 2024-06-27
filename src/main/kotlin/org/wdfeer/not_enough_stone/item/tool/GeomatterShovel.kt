@@ -14,7 +14,7 @@ import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
 class GeomatterShovel : ShovelItem(GeomatterMaterial.INSTANCE, 2f, 1.2f - 4f, FabricItemSettings()),
     GeomatterMiningTool, Identifiable {
-    override fun getIdName(): String = "geomatter_pickaxe"
+    override fun getIdName(): String = "geomatter_shovel"
 
     override fun appendTooltip(
         stack: ItemStack?,
