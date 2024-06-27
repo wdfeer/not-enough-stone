@@ -72,8 +72,4 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricIt
         }
         return map
     }
-
-    override fun getMinStones(): Int {
-        return 26
-    }
 }

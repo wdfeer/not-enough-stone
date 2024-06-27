@@ -41,4 +41,6 @@ class GeomatterHoe : HoeItem(GeomatterMaterial.INSTANCE, 1, 1.2f - 4f, FabricIte
 
         return (if (state == null) 1f else super.getMiningSpeedMultiplier(stack, state)) * multiplier
     }
+
+
 }

@@ -48,8 +48,4 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f - 4f, Fabri
         }
         return map
     }
-
-    override fun getMinStones(): Int {
-        return 18
-    }
 }
