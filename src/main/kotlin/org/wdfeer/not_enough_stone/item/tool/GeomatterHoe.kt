@@ -12,7 +12,7 @@ import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterHoe : HoeItem(GeomatterMaterial.INSTANCE, 1, 1.2f - 4f, FabricItemSettings()), GeomatterMiningTool,
+class GeomatterHoe : HoeItem(GeomatterMaterial.INSTANCE, 2, 2f - 4f, FabricItemSettings()), GeomatterMiningTool,
     Identifiable {
     override fun getIdName(): String = "geomatter_hoe"
 
@@ -41,6 +41,4 @@ class GeomatterHoe : HoeItem(GeomatterMaterial.INSTANCE, 1, 1.2f - 4f, FabricIte
 
         return (if (state == null) 1f else super.getMiningSpeedMultiplier(stack, state)) * multiplier
     }
-
-
 }
