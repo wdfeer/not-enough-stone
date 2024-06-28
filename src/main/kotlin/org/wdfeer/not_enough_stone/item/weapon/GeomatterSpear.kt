@@ -14,13 +14,12 @@ import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.weapon.common.GeomatterWeapon
 import org.wdfeer.not_enough_stone.item.common.Identifiable
 import org.wdfeer.not_enough_stone.item.weapon.common.WeaponBuffType
-import org.wdfeer.not_enough_stone.item.weapon.common.WeaponBuffType.Damage
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 3, 1.6f - 4f, FabricItemSettings()), GeomatterWeapon,
+class GeomatterSpear : SwordItem(GeomatterMaterial.INSTANCE, 5, 1.2f - 4f, FabricItemSettings()), GeomatterWeapon,
     Identifiable {
-    override fun getIdName(): String = "geomatter_sword"
+    override fun getIdName(): String = "geomatter_spear"
 
     override fun appendTooltip(
         stack: ItemStack?,
@@ -44,6 +43,6 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 3, 1.6f - 4f, Fabri
     }
 
     override fun getBuffType(): WeaponBuffType {
-        return Damage
+        return WeaponBuffType.Reach
     }
 }

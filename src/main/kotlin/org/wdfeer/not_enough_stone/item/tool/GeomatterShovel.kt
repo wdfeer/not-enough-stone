@@ -9,7 +9,7 @@ import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.common.Identifiable
-import org.wdfeer.not_enough_stone.item.common.GeomatterMiningTool
+import org.wdfeer.not_enough_stone.item.tool.common.GeomatterMiningTool
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
