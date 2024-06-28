@@ -1,14 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
     "X": {
       "item": "not_enough_stone:geomatter_pickaxe"
     }
   },
   "pattern": [
     "XXX",
-    "XXX",
-    "XXX"
+    "X#X",
+    " # "
   ],
   "result": {
     "item": "not_enough_stone:geomatter_mega_pickaxe"
