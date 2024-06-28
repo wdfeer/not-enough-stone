@@ -18,6 +18,16 @@ import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
     override fun getIdName(): String = "geomatter_mega_pickaxe"
 
+    override fun appendTooltip(
+        stack: ItemStack?,
+        world: World?,
+        tooltip: MutableList<Text>?,
+        context: TooltipContext?
+    ) {
+        super.appendTooltip(stack, world, tooltip, context)
+        tooltip?.add(Text.translatable("not_enough_stone.pickaxe_3x3_tooltip"))
+    }
+
     override fun getMiningSpeed(stones: Int): Float {
         return super.getMiningSpeed(stones) / 9f
     }
