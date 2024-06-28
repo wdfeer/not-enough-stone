@@ -6,7 +6,7 @@ import kotlin.math.roundToInt
 
 interface GeomatterMiningTool : GeomatterTool {
     fun getMiningSpeed(stones: Int): Float {
-        return getBonus(stones) + 1f
+        return getMultBonus(stones) + 1f
     }
 
     private fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {

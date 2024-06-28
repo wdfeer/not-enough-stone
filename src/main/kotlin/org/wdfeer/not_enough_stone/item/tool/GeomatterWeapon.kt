@@ -8,16 +8,14 @@ import net.minecraft.util.Formatting
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
-    fun getDamageIncrease(stones: Int): Float {
-        return getBonus(stones)
-    }
+    fun getDamageIncrease(stones: Int): Float = getFlatBonus(stones)
 
-    private fun getDamageIncreaseTooltipColor(damageIncrease: Float): Formatting {
-        if (damageIncrease < 1.5f)
+    private fun getDamageBuffTooltipColor(buff: Float): Formatting {
+        if (buff < 2f)
             return Formatting.GRAY
-        else if (damageIncrease < 2f)
+        else if (buff < 4f)
             return Formatting.WHITE
-        else if (damageIncrease < 3f)
+        else if (buff < 6f)
             return Formatting.GOLD
 
         return Formatting.AQUA
@@ -28,15 +26,15 @@ interface GeomatterWeapon : GeomatterTool {
             .formatted(Formatting.GRAY)
             .append(
                 Text.literal("+${((damageIncrease * 100f).roundToInt())}")
-                    .formatted(getDamageIncreaseTooltipColor(damageIncrease))
+                    .formatted(getDamageBuffTooltipColor(damageIncrease))
             )
 
-    fun getAttribute(idName: String, damageMult: Float): Pair<EntityAttribute, EntityAttributeModifier> {
+    fun getAttribute(idName: String, damageIncreaseMultiplicative: Float): Pair<EntityAttribute, EntityAttributeModifier> {
         return Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
         EntityAttributeModifier(
         idName + "damage_attribute",
-            damageMult.toDouble(),
-            EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+            damageIncreaseMultiplicative.toDouble(),
+            EntityAttributeModifier.Operation.ADDITION
         ))
     }
 }
