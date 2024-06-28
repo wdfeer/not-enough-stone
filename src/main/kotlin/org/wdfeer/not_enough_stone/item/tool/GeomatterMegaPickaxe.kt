@@ -36,26 +36,33 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
     ): Boolean {
         if (world == null || pos == null || !isSuitableFor(state)) return super.postMine(stack, world, state, pos, miner)
 
-        // Get the direction the player is looking
+        val direction: Direction = getDirection(world, state, pos, miner)
+
+        breakSquare(direction, world, pos, miner)
+
+        return super.postMine(stack, world, state, pos, miner)
+    }
+
+    private fun getDirection(world: World, state: BlockState?, pos: BlockPos, miner: LivingEntity?): Direction {
         val pitch = miner?.pitch ?: 0f
-        val facing = miner?.horizontalFacing
+        val facing = miner?.horizontalFacing ?: Direction.NORTH
 
-        // Determine the plane based on the player's pitch
-        val isLookingUpDown = pitch > 45 || pitch < -45
+        return when {
+            pitch > 45 -> Direction.DOWN // Looking up
+            pitch < -45 -> Direction.UP // Looking down
+            else -> facing // Looking horizontally
+        }
+    }
 
+    private fun breakSquare(direction: Direction, world: World, pos: BlockPos, miner: LivingEntity?) {
         // Loop through a 3x3 area centered around the mined block in the correct plane
         for (dx in -1..1) {
             for (dy in -1..1) {
-                // Calculate the position of the neighboring block
-                val targetPos = when {
-                    isLookingUpDown -> pos.add(dx, 0, dy) // XY plane for looking up or down
-                    else -> {
-                        when (facing) {
-                            Direction.NORTH, Direction.SOUTH -> pos.add(dx, dy, 0) // XZ plane for north/south
-                            Direction.EAST, Direction.WEST -> pos.add(0, dy, dx) // YZ plane for east/west
-                            else -> pos.add(dx, 0, dy) // Default to XY plane
-                        }
-                    }
+                val targetPos = when (direction) {
+                    Direction.UP, Direction.DOWN -> pos.add(dx, 0, dy) // XY plane
+                    Direction.NORTH, Direction.SOUTH -> pos.add(dx, dy, 0) // XZ plane
+                    Direction.EAST, Direction.WEST -> pos.add(0, dy, dx) // YZ plane
+                    else -> pos.add(dx, 0, dy) // Default to XY plane
                 }
 
                 // Skip the original block
@@ -68,7 +75,5 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
                 }
             }
         }
-
-        return super.postMine(stack, world, state, pos, miner)
     }
 }
