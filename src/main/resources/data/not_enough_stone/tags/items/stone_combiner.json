@@ -7,6 +7,7 @@
     "not_enough_stone:geomatter_pickaxe",
     "not_enough_stone:geomatter_shovel",
     "not_enough_stone:geomatter_sword",
-    "not_enough_stone:geomatter_mega_pickaxe"
+    "not_enough_stone:geomatter_mega_pickaxe",
+    "not_enough_stone:geomatter_spear"
   ]
 }

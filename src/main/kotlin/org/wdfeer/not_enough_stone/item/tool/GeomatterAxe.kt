@@ -16,6 +16,7 @@ import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.common.Identifiable
 import org.wdfeer.not_enough_stone.item.tool.common.GeomatterMiningTool
 import org.wdfeer.not_enough_stone.item.weapon.common.GeomatterWeapon
+import org.wdfeer.not_enough_stone.item.weapon.common.WeaponBuffType
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
@@ -62,5 +63,9 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 6f, 0.8f - 4f, FabricIt
         if (stack == null || slot == null) return getAttributeModifiers(stack, slot)
 
         return getAttributeModifiers(getIdName(), stack, slot, getAttributeModifiers(slot))
+    }
+
+    override fun getBuffType(): WeaponBuffType {
+        return WeaponBuffType.Damage
     }
 }

@@ -6,6 +6,7 @@
   "item.not_enough_stone.geomatter_shovel": "Geomatter Shovel",
   "item.not_enough_stone.geomatter_hoe": "Geomatter Hoe",
   "item.not_enough_stone.geomatter_mega_pickaxe": "Geomatter Mega Pickaxe",
+  "item.not_enough_stone.geomatter_spear": "Geomatter Spear",
 
   "not_enough_stone.stones_combined_tooltip": "Stones Combined: ",
   "not_enough_stone.pickaxe_mining_speed_tooltip": "Mining Speed Multiplier: ",
