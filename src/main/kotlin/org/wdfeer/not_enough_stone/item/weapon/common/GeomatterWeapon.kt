@@ -12,6 +12,7 @@ import net.minecraft.registry.Registries
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
+import org.wdfeer.not_enough_stone.NotEnoughStone
 import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.common.GeomatterTool
 import kotlin.math.roundToInt
@@ -40,30 +41,14 @@ interface GeomatterWeapon : GeomatterTool {
                     .formatted(getBuffTooltipColor(buff))
             )
 
-    fun getReachIncreaseTooltip(buff: Float): Text =
-        Text.translatable("not_enough_stone.weapon_reach_increase_tooltip")
-            .formatted(Formatting.GRAY)
-            .append(
-                Text.literal("+${((buff * 100f).roundToInt() / 100f)}")
-                    .formatted(getBuffTooltipColor(buff))
-            )
-
     private fun getAttribute(idName: String, buff: Float): Pair<EntityAttribute, EntityAttributeModifier> {
-        return if (getBuffType() == WeaponBuffType.Damage)
-            Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                EntityAttributeModifier(
-                    idName + "_damage_attribute",
-                    buff.toDouble(),
-                    EntityAttributeModifier.Operation.ADDITION
-                ))
-        else
-            Pair(
-                Registries.ATTRIBUTE.get(Identifier("player.entity_interaction_range"))!!,
-                EntityAttributeModifier(
-                    idName + "_reach_attribute",
-                    buff.toDouble(),
-                    EntityAttributeModifier.Operation.ADDITION
-                ))
+        return Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
+            EntityAttributeModifier(
+                idName + "_damage_attribute",
+                buff.toDouble(),
+                EntityAttributeModifier.Operation.ADDITION
+            ))
+
     }
 
     fun getAttributeModifiers(

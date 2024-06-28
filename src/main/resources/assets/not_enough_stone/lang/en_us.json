@@ -11,6 +11,5 @@
   "not_enough_stone.stones_combined_tooltip": "Stones Combined: ",
   "not_enough_stone.pickaxe_mining_speed_tooltip": "Mining Speed Multiplier: ",
   "not_enough_stone.pickaxe_3x3_tooltip": "Mining Size: 3x3",
-  "not_enough_stone.weapon_damage_increase_tooltip": "Damage: ",
-  "not_enough_stone.weapon_reach_increase_tooltip": "Reach: "
+  "not_enough_stone.weapon_damage_increase_tooltip": "Damage: "
 }

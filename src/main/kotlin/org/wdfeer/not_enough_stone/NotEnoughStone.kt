@@ -1,6 +1,7 @@
 package org.wdfeer.not_enough_stone
 
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.loader.api.FabricLoader
 import org.slf4j.LoggerFactory
 import org.wdfeer.not_enough_stone.item.ModItems
 
