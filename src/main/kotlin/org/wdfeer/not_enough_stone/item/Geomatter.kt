@@ -8,7 +8,7 @@ import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class Geomatter : Item(FabricItemSettings()), Identifiable {
+class Geomatter : Item(FabricItemSettings()), Identifiable, StoneCombiner {
     companion object {
         const val STONES_COMBINED_NBT: String = "stones_combined"
     }

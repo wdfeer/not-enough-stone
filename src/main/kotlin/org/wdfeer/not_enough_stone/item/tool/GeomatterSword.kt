@@ -42,8 +42,8 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f - 4f, Fabri
             map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
                 EntityAttributeModifier(
                     getIdName() + "damage_attribute",
-                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
-                    EntityAttributeModifier.Operation.ADDITION
+                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble() + 1,
+                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL
                 ))
         }
         return map

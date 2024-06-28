@@ -2,12 +2,11 @@ package org.wdfeer.not_enough_stone.item.tool
 
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import kotlin.math.log
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
     fun getDamageIncrease(stones: Int): Float {
-        return getBonus(stones) + 1f
+        return getBonus(stones)
     }
 
     private fun getDamageIncreaseTooltipColor(damageIncrease: Float): Formatting {
@@ -25,7 +24,7 @@ interface GeomatterWeapon : GeomatterTool {
         Text.translatable("not_enough_stone.weapon_damage_increase_tooltip")
             .formatted(Formatting.GRAY)
             .append(
-                Text.literal(((damageIncrease * 100f).roundToInt() / 100f).toString())
+                Text.literal("+${((damageIncrease * 100f).roundToInt() / 100f)}%")
                     .formatted(getDamageIncreaseTooltipColor(damageIncrease))
             )
 }

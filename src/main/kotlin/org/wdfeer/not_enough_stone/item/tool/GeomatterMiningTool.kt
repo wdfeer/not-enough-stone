@@ -2,7 +2,6 @@ package org.wdfeer.not_enough_stone.item.tool
 
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import kotlin.math.log
 import kotlin.math.roundToInt
 
 interface GeomatterMiningTool : GeomatterTool {

@@ -1,6 +1,5 @@
 {
-  "type": "not_enough_stone:geomatter",
-  "category": "misc",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
     "XXX",
