@@ -10,11 +10,11 @@ interface GeomatterWeapon : GeomatterTool {
     }
 
     private fun getDamageIncreaseTooltipColor(damageIncrease: Float): Formatting {
-        if (damageIncrease < 1.2f)
+        if (damageIncrease < 1.5f)
             return Formatting.GRAY
-        else if (damageIncrease < 1.5f)
-            return Formatting.WHITE
         else if (damageIncrease < 2f)
+            return Formatting.WHITE
+        else if (damageIncrease < 3f)
             return Formatting.GOLD
 
         return Formatting.AQUA
