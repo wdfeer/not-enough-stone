@@ -36,7 +36,7 @@ interface GeomatterWeapon : GeomatterTool {
         EntityAttributeModifier(
         idName + "damage_attribute",
             damageMult.toDouble(),
-            EntityAttributeModifier.Operation.ADDITION
+            EntityAttributeModifier.Operation.MULTIPLY_TOTAL
         ))
     }
 }
