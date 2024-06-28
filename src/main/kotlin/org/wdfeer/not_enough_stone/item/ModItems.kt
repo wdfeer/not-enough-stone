@@ -5,6 +5,7 @@ import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import org.wdfeer.not_enough_stone.item.common.Identifiable
 import org.wdfeer.not_enough_stone.item.tool.*
+import org.wdfeer.not_enough_stone.item.weapon.GeomatterSpear
 import org.wdfeer.not_enough_stone.item.weapon.GeomatterSword
 
 class ModItems {
@@ -17,7 +18,8 @@ class ModItems {
             GeomatterSword(),
             GeomatterShovel(),
             GeomatterHoe(),
-            GeomatterMegaPickaxe()
+            GeomatterMegaPickaxe(),
+            GeomatterSpear()
         )
 
         fun initialize() {
