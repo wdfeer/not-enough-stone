@@ -29,7 +29,7 @@ class GeomatterSpear : SwordItem(GeomatterMaterial.INSTANCE, 5, 1.2f - 4f, Fabri
     ) {
         StonesCombinedTooltip.appendTooltip(stack, tooltip)
         if (stack != null) {
-            tooltip?.add(getDamageIncreaseTooltip(getStatIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
+            tooltip?.add(getReachIncreaseTooltip(getStatIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT))))
         }
     }
 
