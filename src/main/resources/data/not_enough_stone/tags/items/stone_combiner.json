@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "not_enough_stone:geomatter",
+    "not_enough_stone:geomatter_axe",
+    "not_enough_stone:geomatter_hoe",
+    "not_enough_stone:geomatter_pickaxe",
+    "not_enough_stone:geomatter_shovel",
+    "not_enough_stone:geomatter_sword"
+  ]
+}
