@@ -1,10 +1,15 @@
 package org.wdfeer.not_enough_stone.item.tool
 
+import com.google.common.collect.ArrayListMultimap
+import com.google.common.collect.Multimap
+import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import org.wdfeer.not_enough_stone.item.Geomatter
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
@@ -29,12 +34,28 @@ interface GeomatterWeapon : GeomatterTool {
                     .formatted(getDamageBuffTooltipColor(damageIncrease))
             )
 
-    fun getAttribute(idName: String, damageIncreaseMultiplicative: Float): Pair<EntityAttribute, EntityAttributeModifier> {
+    private fun getAttribute(idName: String, damageIncreaseMultiplicative: Float): Pair<EntityAttribute, EntityAttributeModifier> {
         return Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
         EntityAttributeModifier(
         idName + "damage_attribute",
             damageIncreaseMultiplicative.toDouble(),
             EntityAttributeModifier.Operation.ADDITION
         ))
+    }
+
+    fun getAttributeModifiers(
+        idName: String,
+        stack: ItemStack,
+        slot: EquipmentSlot,
+        baseModifiers: Multimap<EntityAttribute, EntityAttributeModifier>
+    ): Multimap<EntityAttribute, EntityAttributeModifier> {
+        val map = ArrayListMultimap.create(baseModifiers)
+
+        if (slot == EquipmentSlot.MAINHAND) {
+            val attribute = getAttribute(idName, getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)))
+            map.put(attribute.first, attribute.second)
+        }
+
+        return map
     }
 }

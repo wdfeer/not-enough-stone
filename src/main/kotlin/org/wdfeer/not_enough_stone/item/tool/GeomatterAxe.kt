@@ -1,6 +1,5 @@
 package org.wdfeer.not_enough_stone.item.tool
 
-import com.google.common.collect.HashMultimap
 import com.google.common.collect.Multimap
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.block.BlockState
@@ -58,11 +57,8 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricIt
         stack: ItemStack?,
         slot: EquipmentSlot?
     ): Multimap<EntityAttribute, EntityAttributeModifier> {
-        val map = HashMultimap.create(getAttributeModifiers(slot))
-        if (stack != null && slot == EquipmentSlot.MAINHAND) {
-            val attribute = getAttribute(getIdName(), getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)))
-            map.put(attribute.first, attribute.second)
-        }
-        return map
+        if (stack == null || slot == null) return getAttributeModifiers(stack, slot)
+
+        return getAttributeModifiers(getIdName(), stack, slot, getAttributeModifiers(slot))
     }
 }
