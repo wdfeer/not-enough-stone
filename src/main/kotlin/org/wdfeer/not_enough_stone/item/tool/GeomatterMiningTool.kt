@@ -7,9 +7,7 @@ import kotlin.math.roundToInt
 
 interface GeomatterMiningTool : GeomatterTool {
     fun getMiningSpeed(stones: Int): Float {
-        val logarithm: Float = log(stones - 26f, 9f)
-
-        return (if (logarithm.isNaN()) 0f else logarithm) * stones / 100f + 1f
+        return getBonus(stones) + 1f
     }
 
     private fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {

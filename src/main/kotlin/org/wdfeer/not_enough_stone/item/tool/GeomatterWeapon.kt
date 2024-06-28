@@ -7,9 +7,7 @@ import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
     fun getDamageIncrease(stones: Int): Float {
-        val logarithm: Float = log(stones + 1f, 9f)
-
-        return (if (logarithm.isNaN()) 0f else logarithm) * stones / 100f + 1f
+        return getBonus(stones) + 1f
     }
 
     private fun getDamageIncreaseTooltipColor(damageIncrease: Float): Formatting {
