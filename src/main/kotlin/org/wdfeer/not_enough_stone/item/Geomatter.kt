@@ -23,6 +23,6 @@ class Geomatter : Item(FabricItemSettings()), Identifiable, StoneCombiner {
         tooltip: MutableList<Text>?,
         context: TooltipContext?
     ) {
-        StonesCombinedTooltip.appendTooltip(stack, tooltip);
+        StonesCombinedTooltip.appendTooltip(stack, tooltip)
     }
 }

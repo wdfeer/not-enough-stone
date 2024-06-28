@@ -7,12 +7,8 @@ import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.NbtHelper
-import net.minecraft.registry.Registries
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import net.minecraft.util.Identifier
-import org.wdfeer.not_enough_stone.NotEnoughStone
 import org.wdfeer.not_enough_stone.item.Geomatter
 import org.wdfeer.not_enough_stone.item.common.GeomatterTool
 import kotlin.math.roundToInt
