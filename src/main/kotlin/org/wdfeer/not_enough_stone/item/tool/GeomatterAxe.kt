@@ -17,7 +17,7 @@ import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricItemSettings()), GeomatterMiningTool,
+class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 6f, 0.8f - 4f, FabricItemSettings()), GeomatterMiningTool,
     GeomatterWeapon, Identifiable {
     override fun getIdName(): String = "geomatter_axe"
 
