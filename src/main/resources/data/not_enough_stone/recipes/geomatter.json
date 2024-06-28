@@ -7,7 +7,7 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:stone"
+      "tag": "not_enough_stone:stone_combinable"
     }
   },
   "result": {
