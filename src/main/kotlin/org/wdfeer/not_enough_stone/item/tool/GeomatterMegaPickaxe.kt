@@ -1,19 +1,13 @@
 package org.wdfeer.not_enough_stone.item.tool
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.minecraft.block.BlockState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.ItemStack
-import net.minecraft.item.PickaxeItem
 import net.minecraft.text.Text
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.World
-import org.wdfeer.not_enough_stone.item.Geomatter
-import org.wdfeer.not_enough_stone.item.Identifiable
-import org.wdfeer.not_enough_stone.material.GeomatterMaterial
-import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
 class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
     override fun getIdName(): String = "geomatter_mega_pickaxe"
