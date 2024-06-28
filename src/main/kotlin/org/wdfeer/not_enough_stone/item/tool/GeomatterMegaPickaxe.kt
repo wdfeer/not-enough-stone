@@ -23,8 +23,8 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
         tooltip?.add(Text.translatable("not_enough_stone.pickaxe_3x3_tooltip").formatted(Formatting.GRAY))
     }
 
-    override fun getMiningSpeed(stones: Int): Float {
-        return super.getMiningSpeed(stones) / 9f
+    override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {
+        return super.getMiningSpeedMultiplier(stack, state) / 9f
     }
 
     override fun postMine(
