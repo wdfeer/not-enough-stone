@@ -34,8 +34,7 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
         pos: BlockPos?,
         miner: LivingEntity?
     ): Boolean {
-        // Ensure world and pos are not null
-        if (world == null || pos == null) return super.postMine(stack, world, state, pos, miner)
+        if (world == null || pos == null || !isSuitableFor(state)) return super.postMine(stack, world, state, pos, miner)
 
         // Get the direction the player is looking
         val pitch = miner?.pitch ?: 0f
@@ -64,7 +63,7 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
 
                 // Break the block if it can be mined by the pickaxe
                 val targetState = world.getBlockState(targetPos)
-                if (targetState.getHardness(world, targetPos) != -1.0f) {
+                if (targetState.getHardness(world, targetPos) != -1.0f && isSuitableFor(targetState)) {
                     world.breakBlock(targetPos, true, miner)
                 }
             }
