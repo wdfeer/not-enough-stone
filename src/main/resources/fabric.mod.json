@@ -33,5 +33,6 @@
 		"fabric-language-kotlin": "*"
 	},
 	"suggests": {
+		"better-combat": "*"
 	}
 }
