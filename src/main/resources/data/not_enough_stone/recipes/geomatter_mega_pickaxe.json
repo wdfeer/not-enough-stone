@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "not_enough_stone:geomatter_pickaxe"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "item": "not_enough_stone:geomatter_mega_pickaxe"
+  }
+}
