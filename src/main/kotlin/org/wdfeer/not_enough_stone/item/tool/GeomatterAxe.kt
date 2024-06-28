@@ -8,7 +8,6 @@ import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
-import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.AxeItem
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -61,14 +60,8 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 3f, 0.8f - 4f, FabricIt
     ): Multimap<EntityAttribute, EntityAttributeModifier> {
         val map = HashMultimap.create(getAttributeModifiers(slot))
         if (stack != null && slot == EquipmentSlot.MAINHAND) {
-            map.put(
-                EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                EntityAttributeModifier(
-                    getIdName() + "damage_attribute",
-                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble(),
-                    EntityAttributeModifier.Operation.ADDITION
-                )
-            )
+            val attribute = getAttribute(getIdName(), getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)))
+            map.put(attribute.first, attribute.second)
         }
         return map
     }

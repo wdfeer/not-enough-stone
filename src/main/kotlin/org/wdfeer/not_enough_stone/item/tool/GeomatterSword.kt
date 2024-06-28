@@ -7,7 +7,6 @@ import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
-import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.ItemStack
 import net.minecraft.item.SwordItem
 import net.minecraft.text.Text
@@ -38,13 +37,10 @@ class GeomatterSword : SwordItem(GeomatterMaterial.INSTANCE, 2, 1.6f - 4f, Fabri
         slot: EquipmentSlot?
     ): Multimap<EntityAttribute, EntityAttributeModifier> {
         val map = HashMultimap.create(getAttributeModifiers(slot))
+
         if (stack != null && slot == EquipmentSlot.MAINHAND) {
-            map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                EntityAttributeModifier(
-                    getIdName() + "damage_attribute",
-                    getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)).toDouble() + 1,
-                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL
-                ))
+            val attribute = getAttribute(getIdName(), getDamageIncrease(stack.orCreateNbt.getInt(Geomatter.STONES_COMBINED_NBT)))
+            map.put(attribute.first, attribute.second)
         }
         return map
     }
