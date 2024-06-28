@@ -1,11 +1,14 @@
 package org.wdfeer.not_enough_stone.item.tool
 
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents
 import net.minecraft.block.BlockState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.LivingEntity
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.World
@@ -27,31 +30,32 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
         return super.getMiningSpeedMultiplier(stack, state) / 9f
     }
 
-    override fun postMine(
-        stack: ItemStack?,
-        world: World?,
-        state: BlockState?,
-        pos: BlockPos?,
-        miner: LivingEntity?
-    ): Boolean {
-        if (world == null || pos == null || !isSuitableFor(state)) return super.postMine(stack, world, state, pos, miner)
-
-        val direction: Direction = getDirection(world, state, pos, miner)
-
-        breakSquare(direction, world, pos, miner)
-
-        return super.postMine(stack, world, state, pos, miner)
+    init {
+        PlayerBlockBreakEvents.BEFORE.register(PlayerBlockBreakEvents.Before { world, playerEntity, blockPos, _, _ ->
+            beforeMine(
+                world,
+                playerEntity,
+                blockPos
+            )
+        })
     }
 
-    private fun getDirection(world: World, state: BlockState?, pos: BlockPos, miner: LivingEntity?): Direction {
-        val pitch = miner?.pitch ?: 0f
-        val facing = miner?.horizontalFacing ?: Direction.NORTH
-
-        return when {
-            pitch > 45 -> Direction.DOWN // Looking up
-            pitch < -45 -> Direction.UP // Looking down
-            else -> facing // Looking horizontally
+    private fun beforeMine(
+        world: World,
+        player: PlayerEntity,
+        pos: BlockPos,
+    ): Boolean {
+        if (player.mainHandStack.isOf(this)) {
+            val direction = getDirection(player)
+            breakSquare(direction, world, pos, player)
         }
+
+        return true
+    }
+
+    private fun getDirection(miner: LivingEntity): Direction {
+        val hitResult = miner.raycast(5.0, 0.0f, false) as? BlockHitResult ?: return Direction.NORTH
+        return hitResult.side
     }
 
     private fun breakSquare(direction: Direction, world: World, pos: BlockPos, miner: LivingEntity?) {
@@ -65,7 +69,6 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
                     else -> pos.add(dx, 0, dy) // Default to XY plane
                 }
 
-                // Skip the original block
                 if (targetPos == pos) continue
 
                 // Break the block if it can be mined by the pickaxe
