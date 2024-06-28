@@ -34,11 +34,11 @@ interface GeomatterWeapon : GeomatterTool {
                     .formatted(getDamageBuffTooltipColor(damageIncrease))
             )
 
-    private fun getAttribute(idName: String, damageIncreaseMultiplicative: Float): Pair<EntityAttribute, EntityAttributeModifier> {
+    private fun getAttribute(idName: String, damageIncrease: Float): Pair<EntityAttribute, EntityAttributeModifier> {
         return Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
         EntityAttributeModifier(
         idName + "damage_attribute",
-            damageIncreaseMultiplicative.toDouble(),
+            damageIncrease.toDouble(),
             EntityAttributeModifier.Operation.ADDITION
         ))
     }

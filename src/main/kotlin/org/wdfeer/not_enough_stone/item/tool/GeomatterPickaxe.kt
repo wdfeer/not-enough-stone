@@ -12,7 +12,12 @@ import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterPickaxe : PickaxeItem(GeomatterMaterial.INSTANCE, 3, 1.2f - 4f, FabricItemSettings()),
+open class GeomatterPickaxe(damage: Int = 3, attackSpeed: Float = 1.2f) : PickaxeItem(
+    GeomatterMaterial.INSTANCE,
+    damage,
+    attackSpeed - 4f,
+    FabricItemSettings()
+),
     GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_pickaxe"
 

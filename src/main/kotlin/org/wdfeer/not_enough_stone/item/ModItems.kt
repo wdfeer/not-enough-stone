@@ -14,7 +14,8 @@ class ModItems {
             GeomatterAxe(),
             GeomatterSword(),
             GeomatterShovel(),
-            GeomatterHoe()
+            GeomatterHoe(),
+            GeomatterMegaPickaxe()
         )
 
         fun initialize() {
