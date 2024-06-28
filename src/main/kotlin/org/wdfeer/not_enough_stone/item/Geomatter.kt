@@ -6,6 +6,8 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.world.World
+import org.wdfeer.not_enough_stone.item.common.Identifiable
+import org.wdfeer.not_enough_stone.item.common.StoneCombiner
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
 class Geomatter : Item(FabricItemSettings()), Identifiable, StoneCombiner {

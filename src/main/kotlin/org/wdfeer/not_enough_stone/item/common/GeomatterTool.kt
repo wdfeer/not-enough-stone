@@ -1,6 +1,5 @@
-package org.wdfeer.not_enough_stone.item.tool
+package org.wdfeer.not_enough_stone.item.common
 
-import org.wdfeer.not_enough_stone.item.StoneCombiner
 import kotlin.math.log
 import kotlin.math.max
 import kotlin.math.min

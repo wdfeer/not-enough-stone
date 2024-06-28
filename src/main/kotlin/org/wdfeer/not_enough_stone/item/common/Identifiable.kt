@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_stone.item
+package org.wdfeer.not_enough_stone.item.common
 
 import net.minecraft.util.Identifier
 import org.wdfeer.not_enough_stone.NotEnoughStone

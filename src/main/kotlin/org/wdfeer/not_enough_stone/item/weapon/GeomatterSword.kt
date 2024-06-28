@@ -1,4 +1,4 @@
-package org.wdfeer.not_enough_stone.item.tool
+package org.wdfeer.not_enough_stone.item.weapon
 
 import com.google.common.collect.Multimap
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings
@@ -11,7 +11,8 @@ import net.minecraft.item.SwordItem
 import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.item.Geomatter
-import org.wdfeer.not_enough_stone.item.Identifiable
+import org.wdfeer.not_enough_stone.item.common.GeomatterWeapon
+import org.wdfeer.not_enough_stone.item.common.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
