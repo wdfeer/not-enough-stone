@@ -7,8 +7,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.world.World
 
-class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f), AreaMiner {
-    override fun getIdName(): String = "geomatter_mega_pickaxe"
+class GeomatterMegaShovel : GeomatterShovel(5f, 0.9f), AreaMiner {
+    override fun getIdName(): String = "geomatter_mega_shovel"
 
     override fun getRadius(stack: ItemStack): Int {
         return 1
@@ -29,7 +29,7 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f), AreaMiner {
         context: TooltipContext?
     ) {
         super.appendTooltip(stack, world, tooltip, context)
-        tooltip?.add(Text.translatable("not_enough_stone.pickaxe_3x3_tooltip").formatted(Formatting.GRAY))
+        tooltip?.add(Text.translatable("not_enough_stone.shovel_3x3_tooltip").formatted(Formatting.GRAY))
     }
 
     override fun getMiningSpeedMultiplier(stack: ItemStack?, state: BlockState?): Float {

@@ -6,9 +6,11 @@
   "item.not_enough_stone.geomatter_shovel": "Geomatter Shovel",
   "item.not_enough_stone.geomatter_hoe": "Geomatter Hoe",
   "item.not_enough_stone.geomatter_mega_pickaxe": "Geomatter Mega Pickaxe",
+  "item.not_enough_stone.geomatter_mega_shovel": "Geomatter Mega Shovel",
 
   "not_enough_stone.stones_combined_tooltip": "Stones Combined: ",
   "not_enough_stone.pickaxe_mining_speed_tooltip": "Mining Speed Multiplier: ",
   "not_enough_stone.weapon_damage_increase_tooltip": "Damage Increase: ",
-  "not_enough_stone.pickaxe_3x3_tooltip": "Mining Size: 3x3"
+  "not_enough_stone.pickaxe_3x3_tooltip": "Mining Size: 3x3",
+  "not_enough_stone.shovel_3x3_tooltip": "Digging Size: 3x3"
 }

@@ -5,7 +5,6 @@ import net.minecraft.item.ItemGroups
 import net.minecraft.registry.RegistryKey
 import org.wdfeer.not_enough_stone.item.Groupable
 import org.wdfeer.not_enough_stone.item.StoneCombiner
-import kotlin.math.abs
 import kotlin.math.log
 import kotlin.math.max
 import kotlin.math.min

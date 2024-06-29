@@ -16,7 +16,8 @@ class ModItems {
             GeomatterSword(),
             GeomatterShovel(),
             GeomatterHoe(),
-            GeomatterMegaPickaxe()
+            GeomatterMegaPickaxe(),
+            GeomatterMegaShovel()
         )
 
         fun initialize() {
@@ -25,6 +26,8 @@ class ModItems {
                 if (item is Groupable)
                     ItemGroupEvents.modifyEntriesEvent(item.getGroup()).register { content -> content.add(item) }
             }
+
+            AreaMiner.registerBeforeBlockBreakListeners()
         }
     }
 }

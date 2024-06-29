@@ -12,7 +12,7 @@ import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-class GeomatterShovel : ShovelItem(GeomatterMaterial.INSTANCE, 2f, 1f - 4f, FabricItemSettings()),
+open class GeomatterShovel(damage: Float = 2f, attackSpeed: Float = 1f) : ShovelItem(GeomatterMaterial.INSTANCE, damage, attackSpeed - 4f, FabricItemSettings()),
     GeomatterMiningTool, Identifiable {
     override fun getIdName(): String = "geomatter_shovel"
 
