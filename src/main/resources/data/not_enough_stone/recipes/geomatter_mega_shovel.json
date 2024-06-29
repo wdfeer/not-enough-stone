@@ -6,10 +6,13 @@
     },
     "X": {
       "item": "not_enough_stone:geomatter_shovel"
+    },
+    "G": {
+      "item": "minecraft: gunpowder"
     }
   },
   "pattern": [
-    "XXX",
+    "XGX",
     "X#X",
     " # "
   ],
