@@ -13,7 +13,7 @@ import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
 class Geomatter : Item(FabricItemSettings()), Identifiable, Groupable, StoneCombiner {
     companion object {
-        const val STONES_COMBINED_NBT: String = "stones_combined"
+        const val STONES_COMBINED_NBT: String = "stone_combined"
     }
 
     override fun getIdName(): String = "geomatter"

@@ -11,7 +11,7 @@ class StonesCombinedTooltip {
             if (stack != null && tooltip != null && stack.hasNbt() && stack.getOrCreateNbt().contains(Geomatter.STONES_COMBINED_NBT)) {
                 val stones = stack.getOrCreateNbt().getInt(Geomatter.STONES_COMBINED_NBT)
                 tooltip.add(
-                    Text.translatable("not_enough_stone.stones_combined_tooltip").append(stones.toString()).formatted(
+                    Text.translatable("not_enough_stone.stone_combined_tooltip").append(stones.toString()).formatted(
                         Formatting.GRAY
                     )
                 )
