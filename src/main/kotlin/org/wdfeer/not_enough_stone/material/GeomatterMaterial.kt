@@ -5,7 +5,7 @@ import net.minecraft.item.ToolMaterials
 import net.minecraft.recipe.Ingredient
 import org.wdfeer.not_enough_stone.item.ModItems
 
-class GeomatterMaterial : ToolMaterial {
+open class GeomatterMaterial : ToolMaterial {
     companion object {
         val INSTANCE: GeomatterMaterial = GeomatterMaterial()
     }
@@ -20,5 +20,5 @@ class GeomatterMaterial : ToolMaterial {
 
     override fun getEnchantability(): Int = ToolMaterials.STONE.enchantability
 
-    override fun getRepairIngredient(): Ingredient = Ingredient.ofItems(ModItems.GEOMATTER)
+    override fun getRepairIngredient(): Ingredient = Ingredient.EMPTY
 }

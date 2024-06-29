@@ -6,14 +6,16 @@ import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
+import net.minecraft.item.ToolMaterial
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.World
+import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 
-class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
+open class GeomatterMegaPickaxe(damage: Int = 4, attackSpeed: Float = 1.2f, material: ToolMaterial = GeomatterMaterial.INSTANCE) : GeomatterPickaxe(damage, attackSpeed) {
     override fun getIdName(): String = "geomatter_mega_pickaxe"
 
     override fun getMiningSpeedTooltip(miningSpeed: Float): Text {
@@ -49,13 +51,16 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
         player: PlayerEntity,
         pos: BlockPos,
     ): Boolean {
-        if (player.mainHandStack.isOf(this)) {
+        val stack = player.mainHandStack
+        if (stack.isOf(this) && canAreaMine(stack)) {
             val direction = getDirection(player)
             breakSquare(direction, world, pos, player)
         }
 
         return true
     }
+
+    protected open fun canAreaMine(stack: ItemStack): Boolean = true
 
     private fun getDirection(miner: LivingEntity): Direction {
         val hitResult = miner.raycast(5.0, 0.0f, false) as? BlockHitResult ?: return Direction.NORTH

@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
 import net.minecraft.item.PickaxeItem
+import net.minecraft.item.ToolMaterial
 import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.item.Geomatter
@@ -12,8 +13,8 @@ import org.wdfeer.not_enough_stone.item.Identifiable
 import org.wdfeer.not_enough_stone.material.GeomatterMaterial
 import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 
-open class GeomatterPickaxe(damage: Int = 3, attackSpeed: Float = 1.2f) : PickaxeItem(
-    GeomatterMaterial.INSTANCE,
+open class GeomatterPickaxe(damage: Int = 3, attackSpeed: Float = 1.2f, material: ToolMaterial = GeomatterMaterial.INSTANCE) : PickaxeItem(
+    material,
     damage,
     attackSpeed - 4f,
     FabricItemSettings()
