@@ -13,9 +13,16 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.World
 
-class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
+class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f), AreaMiner {
     override fun getIdName(): String = "geomatter_mega_pickaxe"
 
+    override fun getRadius(stack: ItemStack): Int {
+        return 1
+    }
+
+    override fun canAreaMine(stack: ItemStack): Boolean {
+        return true
+    }
 
     override fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
         return super.getMiningSpeedTooltipColor(miningSpeed * 9)
@@ -45,43 +52,5 @@ class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
         })
     }
 
-    private fun beforeMine(
-        world: World,
-        player: PlayerEntity,
-        pos: BlockPos,
-    ): Boolean {
-        if (player.mainHandStack.isOf(this)) {
-            val direction = getDirection(player)
-            breakSquare(direction, world, pos, player)
-        }
 
-        return true
-    }
-
-    private fun getDirection(miner: LivingEntity): Direction {
-        val hitResult = miner.raycast(5.0, 0.0f, false) as? BlockHitResult ?: return Direction.NORTH
-        return hitResult.side
-    }
-
-    private fun breakSquare(direction: Direction, world: World, pos: BlockPos, miner: LivingEntity?) {
-        // Loop through a 3x3 area centered around the mined block in the correct plane
-        for (dx in -1..1) {
-            for (dy in -1..1) {
-                val targetPos = when (direction) {
-                    Direction.UP, Direction.DOWN -> pos.add(dx, 0, dy) // XY plane
-                    Direction.NORTH, Direction.SOUTH -> pos.add(dx, dy, 0) // XZ plane
-                    Direction.EAST, Direction.WEST -> pos.add(0, dy, dx) // YZ plane
-                    else -> pos.add(dx, 0, dy) // Default to XY plane
-                }
-
-                if (targetPos == pos) continue
-
-                // Break the block if it can be mined by the pickaxe
-                val targetState = world.getBlockState(targetPos)
-                if (targetState.getHardness(world, targetPos) != -1.0f && isSuitableFor(targetState)) {
-                    world.breakBlock(targetPos, true, miner)
-                }
-            }
-        }
-    }
 }
