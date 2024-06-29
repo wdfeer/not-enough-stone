@@ -5,6 +5,7 @@ import net.minecraft.item.ItemGroups
 import net.minecraft.registry.RegistryKey
 import org.wdfeer.not_enough_stone.item.Groupable
 import org.wdfeer.not_enough_stone.item.StoneCombiner
+import kotlin.math.abs
 import kotlin.math.log
 import kotlin.math.max
 import kotlin.math.min
@@ -14,20 +15,23 @@ interface GeomatterTool : StoneCombiner, Groupable {
         return ItemGroups.TOOLS
     }
 
-    fun getMultBonus(stones: Int): Float{
+    private fun getLogarithmicSummand(stones: Int): Float {
         var logarithm: Float = max(log(stones.toFloat(), 10f), 0f)
-        if (logarithm.isNaN())
+        if (logarithm.isNaN() || logarithm < 0f)
             logarithm = 0f
 
-        return logarithm * min(stones * stones / 1e7f, 1f) + min(stones / 300f, 0.5f)
+        return logarithm * min(stones / 1e7f * stones, 1f)
+    }
+
+    private fun getLinearSummand(stones: Int, multiplier: Float = 1f): Float {
+        return multiplier * stones / 1e5f
+    }
+
+    fun getMultBonus(stones: Int): Float{
+        return getLogarithmicSummand(stones) + min(stones / 300f, 0.5f) + getLinearSummand(stones)
     }
 
     fun getFlatBonus(stones: Int): Float{
-        var logarithm: Float = max(log(stones.toFloat(), 10f), 0f)
-
-        if (logarithm.isNaN())
-            logarithm = 0f
-
-        return logarithm * min(stones * stones / 1e7f, 1f) + min(stones / 100f, 2f)
+        return getLogarithmicSummand(stones) + min(stones / 100f, 2f) + getLinearSummand(stones, 3f)
     }
 }
