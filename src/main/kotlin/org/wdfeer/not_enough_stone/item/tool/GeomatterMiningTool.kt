@@ -9,7 +9,7 @@ interface GeomatterMiningTool : GeomatterTool {
         return getMultBonus(stones) + 1f
     }
 
-    private fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
+    fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
         if (miningSpeed < 2)
             return Formatting.GRAY
         else if (miningSpeed < 3)

@@ -16,8 +16,9 @@ import net.minecraft.world.World
 class GeomatterMegaPickaxe : GeomatterPickaxe(4, 1f) {
     override fun getIdName(): String = "geomatter_mega_pickaxe"
 
-    override fun getMiningSpeedTooltip(miningSpeed: Float): Text {
-        return super.getMiningSpeedTooltip(miningSpeed / 9f)
+
+    override fun getMiningSpeedTooltipColor(miningSpeed: Float): Formatting {
+        return super.getMiningSpeedTooltipColor(miningSpeed * 9)
     }
 
     override fun appendTooltip(
