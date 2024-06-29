@@ -6,13 +6,20 @@ import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemGroups
 import net.minecraft.item.ItemStack
+import net.minecraft.registry.RegistryKey
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import org.wdfeer.not_enough_stone.item.Geomatter
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
+    override fun getGroup(): RegistryKey<ItemGroup>? {
+        return ItemGroups.COMBAT
+    }
+
     fun getDamageIncrease(stones: Int): Float = getFlatBonus(stones)
 
     private fun getDamageBuffTooltipColor(buff: Float): Formatting {

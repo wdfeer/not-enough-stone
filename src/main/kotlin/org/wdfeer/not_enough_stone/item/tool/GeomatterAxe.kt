@@ -8,8 +8,10 @@ import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.item.AxeItem
+import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
+import net.minecraft.registry.RegistryKey
 import net.minecraft.text.Text
 import net.minecraft.world.World
 import org.wdfeer.not_enough_stone.item.Geomatter
@@ -20,6 +22,10 @@ import org.wdfeer.not_enough_stone.tooltip.StonesCombinedTooltip
 class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 6f, 0.8f - 4f, FabricItemSettings()), GeomatterMiningTool,
     GeomatterWeapon, Identifiable {
     override fun getIdName(): String = "geomatter_axe"
+
+    override fun getGroup(): RegistryKey<ItemGroup>? {
+        return super<GeomatterMiningTool>.getGroup()
+    }
 
     override fun appendTooltip(
         stack: ItemStack?,
