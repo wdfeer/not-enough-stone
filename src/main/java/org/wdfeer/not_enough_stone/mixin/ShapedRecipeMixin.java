@@ -14,10 +14,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.wdfeer.not_enough_stone.NotEnoughStone;
 import org.wdfeer.not_enough_stone.item.Geomatter;
-import org.wdfeer.not_enough_stone.item.ModItems;
-import org.wdfeer.not_enough_stone.tag.ModTags;
-
-import java.util.Arrays;
 
 @Mixin(ShapedRecipe.class)
 public class ShapedRecipeMixin {
@@ -41,7 +37,7 @@ public class ShapedRecipeMixin {
         int sum = 0;
         for (int i = 0; i < input.size(); i++) {
             ItemStack stack = input.getStack(i);
-            if (stack == null) continue;
+            if (stack == null || stack.isEmpty()) continue;
             if (stack.getNbt() != null && stack.getNbt().contains(Geomatter.STONES_COMBINED_NBT)){
                 sum += stack.getNbt().getInt(Geomatter.STONES_COMBINED_NBT);
             } else if (hasTag(stack, "stone_combinable")) {
