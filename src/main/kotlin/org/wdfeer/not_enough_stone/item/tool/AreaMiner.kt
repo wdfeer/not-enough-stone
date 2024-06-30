@@ -1,6 +1,7 @@
 package org.wdfeer.not_enough_stone.item.tool
 
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents
+import net.minecraft.block.BlockState
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
@@ -29,13 +30,17 @@ interface AreaMiner{
     fun getRadius(stack: ItemStack): Int
     fun canAreaMine(stack: ItemStack): Boolean
 
+    private fun canAreaMine(brokenBlockState: BlockState): Boolean{
+        return (this as MiningToolItem).isSuitableFor(brokenBlockState) && brokenBlockState.block.hardness > 0.1f
+    }
+
     private fun beforeMine(
         world: World,
         player: PlayerEntity,
         pos: BlockPos,
         stack: ItemStack
     ): Boolean {
-        if (canAreaMine(stack)) {
+        if (canAreaMine(world.getBlockState(pos)) && canAreaMine(stack)) {
             val direction = getDirection(player)
             breakSquare(direction, world, pos, player, stack)
         }
