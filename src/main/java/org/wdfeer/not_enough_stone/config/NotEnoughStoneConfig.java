@@ -3,20 +3,20 @@ package org.wdfeer.not_enough_stone.config;
 import eu.midnightdust.lib.config.MidnightConfig;
 
 public class NotEnoughStoneConfig extends MidnightConfig {
-    @Entry(category = "numbers")
-    public static double logarithmicSummandMultiplier = 1D;
+    @Entry(category = "numbers", min = 0.0)
+    public static double logarithmicMultiplier = 1D;
     public static float getLogarithmicMultiplier() {
-        return (float)logarithmicSummandMultiplier;
+        return (float) logarithmicMultiplier;
     }
 
-    @Entry(category = "numbers")
-    public static double smallLinearSummandMultiplier = 1D;
+    @Entry(category = "numbers", min = 0.0)
+    public static double smallLinearMultiplier = 1D;
     public static float getSmallLinearMultiplier() {
-        return (float)smallLinearSummandMultiplier;
+        return (float) smallLinearMultiplier;
     }
-    @Entry(category = "numbers")
-    public static double bigLinearSummandMultiplier = 1D;
+    @Entry(category = "numbers", min = 0.0)
+    public static double bigLinearMultiplier = 1D;
     public static float getBigLinearMultiplier() {
-        return (float)bigLinearSummandMultiplier;
+        return (float) bigLinearMultiplier;
     }
 }
