@@ -20,19 +20,22 @@ interface GeomatterTool : StoneCombiner, Groupable {
         if (logarithm.isNaN() || logarithm < 0f)
             logarithm = 0f
 
-        return logarithm * min(stones / 1e7f * stones, 1f)
+        return logarithm * min(stones / 1e7f * stones, 1f) * NotEnoughStoneConfig.getLogarithmicMultiplier()
     }
 
-    private fun getLinearSummand(stones: Int, multiplier: Float = 1f): Float {
-        return multiplier * stones / 1e5f * NotEnoughStoneConfig.getLogarithmicMultiplier()
+    private fun getSmallLinearSummand(stones: Int, divisor: Float, max: Float): Float {
+        return min(stones / divisor, max) * NotEnoughStoneConfig.getSmallLinearMultiplier()
+    }
+
+    private fun getBigLinearSummand(stones: Int, multiplier: Float = 1f): Float {
+        return multiplier * stones / 1e5f  * NotEnoughStoneConfig.getBigLinearMultiplier()
     }
 
     fun getMultBonus(stones: Int): Float{
-        val mult = getLogarithmicSummand(stones) + min(stones / 300f, 0.5f) + getLinearSummand(stones)
-        return mult
+        return getLogarithmicSummand(stones) + getSmallLinearSummand(stones, 300f, 0.5f) + getBigLinearSummand(stones)
     }
 
     fun getFlatBonus(stones: Int): Float{
-        return getLogarithmicSummand(stones) + min(stones / 100f, 2f) + getLinearSummand(stones, 3f)
+        return getLogarithmicSummand(stones) + getSmallLinearSummand(stones, 100f, 2f) + getBigLinearSummand(stones, 3f)
     }
 }
