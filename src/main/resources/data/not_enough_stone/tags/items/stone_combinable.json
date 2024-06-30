@@ -9,6 +9,8 @@
     "minecraft:granite",
     "minecraft:andesite",
     "minecraft:tuff",
+    "minecraft:dripstone_block",
+    "minecraft:pointed_dripstone",
     "#not_enough_stone:stone_combiner"
   ]
 }
