@@ -1,7 +1,9 @@
 package org.wdfeer.not_enough_stone
 
+import eu.midnightdust.lib.config.MidnightConfig
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
+import org.wdfeer.not_enough_stone.config.NotEnoughStoneConfig
 import org.wdfeer.not_enough_stone.item.ModItems
 
 object NotEnoughStone : ModInitializer {
@@ -10,6 +12,8 @@ object NotEnoughStone : ModInitializer {
 
 	override fun onInitialize() {
 		ModItems.initialize()
+
+		MidnightConfig.init(MOD_ID, NotEnoughStoneConfig::class.java)
 
 		logger.info("Mod $MOD_ID initialized!")
 	}

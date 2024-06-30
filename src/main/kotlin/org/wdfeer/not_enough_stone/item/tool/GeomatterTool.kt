@@ -3,6 +3,7 @@ package org.wdfeer.not_enough_stone.item.tool
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemGroups
 import net.minecraft.registry.RegistryKey
+import org.wdfeer.not_enough_stone.config.NotEnoughStoneConfig
 import org.wdfeer.not_enough_stone.item.Groupable
 import org.wdfeer.not_enough_stone.item.StoneCombiner
 import kotlin.math.log
@@ -23,11 +24,12 @@ interface GeomatterTool : StoneCombiner, Groupable {
     }
 
     private fun getLinearSummand(stones: Int, multiplier: Float = 1f): Float {
-        return multiplier * stones / 1e5f
+        return multiplier * stones / 1e5f * NotEnoughStoneConfig.getLogarithmicMultiplier()
     }
 
     fun getMultBonus(stones: Int): Float{
-        return getLogarithmicSummand(stones) + min(stones / 300f, 0.5f) + getLinearSummand(stones)
+        val mult = getLogarithmicSummand(stones) + min(stones / 300f, 0.5f) + getLinearSummand(stones)
+        return mult
     }
 
     fun getFlatBonus(stones: Int): Float{
