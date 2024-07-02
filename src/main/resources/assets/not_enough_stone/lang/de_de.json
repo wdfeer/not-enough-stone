@@ -1,0 +1,21 @@
+{
+  "item.not_enough_stone.geomatter": "Geomasse",
+  "item.not_enough_stone.geomatter_pickaxe": "Geomasse-Spitzhacke",
+  "item.not_enough_stone.geomatter_axe": "Geomasse-Axt",
+  "item.not_enough_stone.geomatter_sword": "Geomasse-Schwert",
+  "item.not_enough_stone.geomatter_shovel": "Geomasse-Schaufel",
+  "item.not_enough_stone.geomatter_hoe": "Geomasse-Hacke",
+  "item.not_enough_stone.geomatter_mega_pickaxe": "Geomasse-Mega-Spitzhacke",
+  "item.not_enough_stone.geomatter_mega_shovel": "Geomasse-Mega-Schaufel",
+
+  "not_enough_stone.stone_combined_tooltip": "Stein Benutzt: ",
+  "not_enough_stone.pickaxe_mining_speed_tooltip": "Abbaugeschwindigkeit: ",
+  "not_enough_stone.weapon_damage_increase_tooltip": "Extraschaden: ",
+  "not_enough_stone.pickaxe_3x3_tooltip": "Abbaugröße: 3x3",
+  "not_enough_stone.shovel_3x3_tooltip": "Grabgröße: 3x3",
+
+  "not_enough_stone.midnightconfig.title": "Not Enough Stone - Konfiguration",
+  "not_enough_stone.midnightconfig.logarithmicMultiplier": "Faktor des logarithmischen Summanden",
+  "not_enough_stone.midnightconfig.smallLinearMultiplier": "Faktor des begrenzten linearen Summanden",
+  "not_enough_stone.midnightconfig.bigLinearMultiplier": "Faktor des unbegrenzten linearen Summanden"
+}
