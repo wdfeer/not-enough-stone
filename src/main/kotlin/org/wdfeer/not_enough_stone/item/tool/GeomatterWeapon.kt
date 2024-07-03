@@ -13,6 +13,7 @@ import net.minecraft.registry.RegistryKey
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import org.wdfeer.not_enough_stone.item.Geomatter
+import java.util.*
 import kotlin.math.roundToInt
 
 interface GeomatterWeapon : GeomatterTool {
@@ -42,9 +43,11 @@ interface GeomatterWeapon : GeomatterTool {
             )
 
     private fun getAttribute(idName: String, damageIncrease: Float): Pair<EntityAttribute, EntityAttributeModifier> {
+        val id = idName + "damage_attribute"
         return Pair(EntityAttributes.GENERIC_ATTACK_DAMAGE,
         EntityAttributeModifier(
-        idName + "damage_attribute",
+            UUID.nameUUIDFromBytes(id.toByteArray()),
+            id,
             damageIncrease.toDouble(),
             EntityAttributeModifier.Operation.ADDITION
         ))
