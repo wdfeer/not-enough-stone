@@ -7,6 +7,7 @@
   "item.not_enough_stone.geomatter_hoe": "Geomasse-Hacke",
   "item.not_enough_stone.geomatter_mega_pickaxe": "Geomasse-Mega-Spitzhacke",
   "item.not_enough_stone.geomatter_mega_shovel": "Geomasse-Mega-Schaufel",
+  "item.not_enough_stone.geomatter_claymore": "Geomasse-Mega-Schwert",
 
   "not_enough_stone.stone_combined_tooltip": "Stein Benutzt: ",
   "not_enough_stone.pickaxe_mining_speed_tooltip": "Abbaugeschwindigkeit: ",
