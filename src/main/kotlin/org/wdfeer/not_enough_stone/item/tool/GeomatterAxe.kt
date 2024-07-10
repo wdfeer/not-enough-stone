@@ -67,4 +67,8 @@ class GeomatterAxe : AxeItem(GeomatterMaterial.INSTANCE, 6f, 0.9f - 4f, FabricIt
 
         return getAttributeModifiers(getIdName(), stack, slot, getAttributeModifiers(slot))
     }
+
+    override fun getDamageIncrease(stones: Int): Float {
+        return super.getDamageIncrease(stones) * 1.5f
+    }
 }
