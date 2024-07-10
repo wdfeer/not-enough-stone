@@ -1,0 +1,23 @@
+{
+  "item.not_enough_stone.geomatter": "Геоматерия",
+  "item.not_enough_stone.geomatter_pickaxe": "Геоматерная кирка",
+  "item.not_enough_stone.geomatter_axe": "Геоматерная топор",
+  "item.not_enough_stone.geomatter_sword": "Геоматерный меч",
+  "item.not_enough_stone.geomatter_shovel": "Геоматерная лопата",
+  "item.not_enough_stone.geomatter_hoe": "Геоматерная мотыга",
+  "item.not_enough_stone.geomatter_mega_pickaxe": "Геоматерная мега-кирка",
+  "item.not_enough_stone.geomatter_mega_shovel": "Геоматерная мега-лопата",
+  "item.not_enough_stone.geomatter_claymore": "Геоматерный мега-меч",
+
+  "not_enough_stone.stone_combined_tooltip": "Объединено камня: ",
+  "not_enough_stone.pickaxe_mining_speed_tooltip": "Множитель скорости копания: ",
+  "not_enough_stone.weapon_damage_increase_tooltip": "Увеличение урона: ",
+  "not_enough_stone.pickaxe_3x3_tooltip": "Площадь вскапывания: 3x3",
+  "not_enough_stone.shovel_3x3_tooltip": "Площадь вскапывания: 3x3",
+
+
+  "not_enough_stone.midnightconfig.title": "Конфигурация Not Enough Stone",
+  "not_enough_stone.midnightconfig.logarithmicMultiplier": "Множитель логарифмического слагаемого",
+  "not_enough_stone.midnightconfig.smallLinearMultiplier": "Множитель малого ограниченного линейного слагаемого",
+  "not_enough_stone.midnightconfig.bigLinearMultiplier": "Множитель большого неограниченного линейного слагаемого"
+}
